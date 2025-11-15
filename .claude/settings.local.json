@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/djrem/WebstormProjects/KPI/huddle-front-end/src/pages/**)",
+      "Read(//c/Users/djrem/WebstormProjects/KPI/huddle-front-end/src/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

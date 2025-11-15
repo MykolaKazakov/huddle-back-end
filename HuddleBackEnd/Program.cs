@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using HuddleBackEnd;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // 1. Додаємо контролери
 builder.Services.AddControllers();
+
+builder.Services.AddDbContext<HuddleDbContext>(options => 
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // 2. Додаємо Swagger (для тестування API)
 builder.Services.AddEndpointsApiExplorer();
@@ -14,7 +20,7 @@ builder.Services.AddCors(options =>
         policy =>
         {
             policy
-                .WithOrigins("http://localhost:3000") // React запускається тут
+                .AllowAnyOrigin()
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
